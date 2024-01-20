@@ -1,5 +1,5 @@
 {
-    "_comment" : "Create a AWS AMI ith AMZ Linux 2018 with Java and Tomcat",
+    "_comment" : "Create a AWS AMI ith AMZ Ubuntu 2024",
     "variables": {
       "aws_access_key": "",
       "aws_secret_key": "",
@@ -19,11 +19,11 @@
       "source_ami": "{{user `source_ami`}}",
       "instance_type": "{{user `instance_type`}}",
       "ssh_username": "ubuntu",
-      "ami_name": "DevOpsClass-B18-Build-{{isotime | clean_resource_name}}",
+      "ami_name": "DevOpsClass-Build-{{isotime | clean_resource_name}}",
       "vpc_id": "{{user `vpc_id`}}",
       "subnet_id": "{{user `subnet_id`}}",
       "tags": {
-        "Name": "DevOpsClass-B18-Build-{{isotime | clean_resource_name}}"
+        "Name": "DevOpsClass-Build-{{isotime | clean_resource_name}}"
       }
     }],
     "provisioners": [{
@@ -33,7 +33,7 @@
         "sudo apt update -y",
         "sudo apt install nginx -y",
         "sudo apt install git -y",
-        "sudo git clone https://github.com/mavrick202/webhooktesting.git",
+        "sudo git clone https://github.com/dmodhukuri/webhooktesting.git",
         "sudo rm -rf /var/www/html/index.nginx-debian.html",
         "sudo cp webhooktesting/index.html /var/www/html/index.nginx-debian.html",
         "sudo cp webhooktesting/style.css /var/www/html/style.css",
